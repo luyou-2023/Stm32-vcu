@@ -129,6 +129,19 @@ void Can_OI::SetTorque(float torquePercent)
    uint32_t crc = crc_calculate_block(data, 2) & 0xFF;
    data[1] |= crc << 24;
 
+   /**
+   字段详解如下：
+      数据字段	位数	含义
+      pot	12	油门电位器信号
+      pot2	12	第二油门通道（冗余）
+      canio	6	FWD/REV/BRAKE/START 等控制位
+      ctr	2	滚动计数器，用于跟踪丢包
+      cruise	14	巡航目标速度（若支持）
+      regen	8+	再生制动强度（当前为0）
+      crc	8	校验码（附加在 data[1] 最后）
+   **/
+
+
    // 发送CAN消息，ID为0x3F
    can->Send(0x3F, data);
 }
