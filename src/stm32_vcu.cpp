@@ -276,13 +276,27 @@ static void Ms100Task(void)
 
     utils::ProcessCruiseControlButtons();
 
+    // 调用选中的逆变器模块的100毫秒任务函数，处理逆变器相关的周期性工作
     selectedInverter->Task100Ms();
+
+    // 调用选中的车辆模块的100毫秒任务函数，处理车辆相关的周期性工作
     selectedVehicle->Task100Ms();
+
+    // 调用选中的充电器模块的100毫秒任务函数，处理充电器相关的周期性工作
     selectedCharger->Task100Ms();
+
+    // 调用选中的电池管理系统(BMS)模块的100毫秒任务函数，处理BMS相关的周期性工作
     selectedBMS->Task100Ms();
+
+    // 调用选中的直流-直流变换器模块的100毫秒任务函数，处理DCDC相关的周期性工作
     selectedDCDC->Task100Ms();
+
+    // 调用选中的换挡器模块的100毫秒任务函数，处理换挡器相关的周期性工作
     selectedShifter->Task100Ms();
+
+    // 通过 canMap 发送所有已准备好的 CAN 数据包，实现数据的传输
     canMap->SendAll();
+
 
 
     if (Param::GetInt(Param::dir) < 0)

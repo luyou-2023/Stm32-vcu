@@ -175,11 +175,11 @@
     VALUE_ENTRY(cruisespeed,   "rpm",               2033 ) \
     VALUE_ENTRY(cruisestt,     CRUISESTATES,        2034 ) \
     VALUE_ENTRY(din_cruise,    ONOFF,               2035 ) \
-    VALUE_ENTRY(din_start,     ONOFF,               2036 ) \
-    VALUE_ENTRY(din_brake,     ONOFF,               2037 ) \
-    VALUE_ENTRY(din_forward,   ONOFF,               2038 ) \
-    VALUE_ENTRY(din_reverse,   ONOFF,               2039 ) \
-    VALUE_ENTRY(din_bms,       ONOFF,               2040 ) \
+    VALUE_ENTRY(din_start,     ONOFF,               2036 )  // 启动开关，开/关型信号
+    VALUE_ENTRY(din_brake,     ONOFF,               2037 )  // 刹车开关，开/关型信号
+    VALUE_ENTRY(din_forward,   ONOFF,               2038 )  // 前进挡信号，开/关型信号
+    VALUE_ENTRY(din_reverse,   ONOFF,               2039 )  // 倒车挡信号，开/关型信号
+    VALUE_ENTRY(din_bms,       ONOFF,               2040 )  // BMS信号，开/关型信号
     VALUE_ENTRY(din_12Vgp,     ONOFF,               2071 ) \
     VALUE_ENTRY(handbrk,       ONOFF,               2041 ) \
     VALUE_ENTRY(Gear1,         ONOFF,               2042 ) \
