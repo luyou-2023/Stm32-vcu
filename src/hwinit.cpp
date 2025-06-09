@@ -179,6 +179,12 @@ void tim_setup()
    timer_set_mode(TIM1, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_CENTER_1,
                   TIM_CR1_DIR_UP);
    timer_set_prescaler(TIM1,16);
+   //设置 TIM1 的通道 1（OC1）为 PWM 模式 2，这是实现 PWM 的关键一步之一
+   /**
+   模式宏	模式名称	含义
+   TIM_OCM_PWM1	PWM 模式 1	在 CNT < CCRx 时输出为高电平
+   TIM_OCM_PWM2	PWM 模式 2	在 CNT < CCRx 时输出为低电平（反相）
+   *//
    timer_set_oc_mode(TIM1, TIM_OC1, TIM_OCM_PWM2);
    timer_enable_oc_output(TIM1, TIM_OC1);
    timer_enable_break_main_output(TIM1);
